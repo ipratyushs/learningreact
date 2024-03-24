@@ -1,0 +1,33 @@
+{
+  "name": "project001",
+  "version": "1.0.0",
+  "description": "This is a react app made from scratch without creat-react-app",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipratyushs/learningreact.git"
+  },
+  "author": "Pratyush Swain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipratyushs/learningreact/issues"
+  },
+  "homepage": "https://github.com/ipratyushs/learningreact#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
