@@ -1,36 +1,40 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export default Header = () => {
-  // use state is used to create local state variable - Super powerful variable
-  // never use a useState inside a condition
+
   const [btnName, setBtnName] = useState("Login");
-  // if no dependency array  => useEffect is called on every render 
-  // if the dependency array is empty  = [] => useEffect is called on initial render (just once)
-  // if the dependency array is [something] => called everytime when [something] is changed
-  
+  const onlineStatus = useOnlineStatus();
   return (
-    <div id="header">
+    <div id="header" className="flex justify-between sm:bg-violet-100 lg:bg-blue-100 shadow-md mb-2">
+      <div className="logo-container">
       <img
-        className="cmp-logo"
+        className="w-40"
         src={LOGO_URL}
         alt="cmp-logo"
       />
-      <nav className="menu">
-        <ul>
-          <li>
-            <a href="#">Home</a>
+      </div>
+      <nav className="flex items-center">
+        <ul className="flex p-4 m-4">
+      <div> Status { onlineStatus ? '🟢' : '🔴' }</div>
+          <li className="px-4">
+            <Link to="/">Home</Link>
           </li>
-          <li>
-            <a href="#">About</a>
+          <li className="px-4"> 
+            <Link to="/about">About</Link>
           </li>
-          <li>
-            <a href="#">Contact</a>
+          <li className="px-4">
+            <Link to="/grocery">Grocery</Link>
           </li>
-        </ul>
+          <li className="px-4">
+            < Link to="/contact">Contact</Link>
+          </li>
         <button className="loginBtn" onClick={()=> {
           btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
         }}>{btnName}</button>
+        </ul>
       </nav>
     </div>
   );}
